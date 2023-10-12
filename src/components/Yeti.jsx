@@ -11,8 +11,10 @@ export function Yeti({ hovered, ...props }) {
   const { nodes, materials, animations } = useGLTF("/models/Yeti.gltf");
   const { actions } = useAnimations(animations, group);
 
+  console.log(animations);
+
   useEffect(() => {
-    const anim = hovered ? "Punch" : "Idle";
+    const anim = hovered ? "Wave" : "Idle";
     actions[anim].reset().fadeIn(0.5).play();
     return () => actions[anim].fadeOut(0.5);
   }, [hovered]);
